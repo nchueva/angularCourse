@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
 })
 
 
-export class WidgetMainComponent {
+export class WidgetMainComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }
