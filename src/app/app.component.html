@@ -1,8 +1,10 @@
-<div class="container">
+<div class="w-50 d-flex content align-self-center m-auto">
 
-<widget-main-component></widget-main-component>
+  <widget-main-component class="w-50 h-100 d-flex flex-column rounded overflow-hidden"></widget-main-component>
 
-<div class="widget-wrapper"></div>
-  <div>right top block</div>
-  <div>right bottom block</div>
+  <div class="w-50 h-100 d-flex flex-column pl-4">
+    <app-widget-weather class="w-100 h-50 mb-4">right top block</app-widget-weather>
+    <app-widget-rate class="w-100 h-50">right bottom block</app-widget-rate>
+  </div>
+
 </div>
