@@ -14,18 +14,18 @@
   <div *ngFor="let hotel of hotels" class="w-100 d-flex p-3">
 
     <div class="w-50 d-felx flex-column">
-      <h5>{{hotel.social_info.title}}</h5>
-      <h6>Address: {{hotel.address}}</h6>
-      <h6>Phone number: {{hotel.phone}}</h6>
+      <h5 class="text-info">{{hotel.social_info.title}}</h5>
+      <h6><em>Address:</em> {{hotel.address}}</h6>
+      <h6><em>Phone number:</em> {{hotel.phone}}</h6>
 
     </div>
 
-    <div class="w-50 d-flex justify-content-center">
-      <div (click)="changeImgs(hotel.img, hotel.social_info.img)">
+    <div class="w-50 d-flex justify-content-center align-items-center">
+      <div (click)="changeImgs(hotel)">
         <img [src]="tempUrl + hotel.img" alt="" />
       </div>
 
-      <div (click)="changeImgs(hotel.img, hotel.social_info.img)">
+      <div (click)="changeImgs(hotel)">
         <img [src]="tempUrl + hotel.social_info.img" alt="" />
       </div>
     </div>

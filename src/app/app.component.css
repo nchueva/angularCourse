@@ -1,4 +1,20 @@
 .content {
     height: 70vh;
-    margin-top: 15vh;
+}
+
+.weather-state, app-widget-rate h2  {
+  border-bottom: 1px solid white;
+}
+
+app-widget-rate h2 {
+  padding-top: 1rem;
+}
+
+.water-temp {
+  border-top: 1px solid white;
+  padding-top: 1rem;
+}
+
+.followers {
+  border-right: 0.5px solid white;
 }

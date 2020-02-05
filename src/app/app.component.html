@@ -1,10 +1,30 @@
 <div class="w-50 d-flex content align-self-center m-auto">
 
-  <widget-main-component class="w-50 h-100 d-flex flex-column rounded overflow-hidden"></widget-main-component>
+  <widget-main-component (hotelDataSet)="incomingData($event)"
+    class="w-50 h-100 d-flex flex-column rounded overflow-hidden"></widget-main-component>
 
   <div class="w-50 h-100 d-flex flex-column pl-4">
-    <app-widget-weather class="w-100 h-50 mb-4">right top block</app-widget-weather>
-    <app-widget-rate class="w-100 h-50">right bottom block</app-widget-rate>
+
+    <app-widget-weather class="w-100 h-50 mb-4">
+      <div class="w-25 weather-state text-center">
+        <h2>{{precipitation}}</h2>
+      </div>
+      <i [class]="icon" class="my-1"></i>
+      <div class="w-50 text-center">
+        <h2>{{temperature}}°C</h2>
+      </div>
+      <p class="w-25 text-center water-temp"> Water {{waterTemp}}°C</p>
+    </app-widget-weather>
+
+    <app-widget-rate class="w-100 h-50">
+        <h2 class="w-25">{{sm}}</h2>
+        <img src="{{'./assets/images/' + secondImage}}">
+        <div class="w-100 d-flex justify-content-center" >
+          <div class="followers px-3">{{followers}} Followers</div>
+          <div class="px-3">{{following}} Following</div>
+        </div>
+    </app-widget-rate>
+
   </div>
 
 </div>

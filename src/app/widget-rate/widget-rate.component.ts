@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, ContentChild, TemplateRef, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-widget-rate',
@@ -9,7 +9,8 @@ export class WidgetRateComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
+
+
 
 }

@@ -1,13 +1,6 @@
-img {
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-}
 
 .rate-wrapper {
   background-color: palevioletred;
 }
 
-.followers {
-  border-right: 0.5px solid white;
-}
+

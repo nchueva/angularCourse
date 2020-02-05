@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -16,8 +16,8 @@ export class WidgetMainComponent {
       address: 'Germany, Neustrasse 56, Burg, 40299',
       phone: 133556658, // дополнительно задание pipe для форматирования
       weather: {
-        title: 'Rain with sun',
-        icon: 'fa-cloud-sun',
+        title: 'Sunny',
+        icon: 'fa fa-sun-o',
         water: 19,
         temperature: 20,
       },
@@ -27,14 +27,16 @@ export class WidgetMainComponent {
         followers: 5000,
         following: 100
       },
+      type: 'Instagram',
+
     },
     {
       img: 'tajikistan.jpg',
       address: 'Germany, Somestreet 98, Augsburg, 60589',
       phone: 2548785157, // дополнительно задание pipe для форматирования
       weather: {
-        title: 'Sunny',
-        icon: 'fa-sun',
+        title: 'Cloudy',
+        icon: 'fa fa-cloud',
         water: 10,
         temperature: 15,
       },
@@ -44,21 +46,30 @@ export class WidgetMainComponent {
         followers: 1259,
         following: 5000
       },
+
+      type: 'Facebook',
+
     },
   ];
 
+
   public tempUrl = './assets/images/';
   public firstImg: string = './assets/images/' + this.hotels[0].img;
-  public secondImageUrlOutput: string;
+  public secondImage: string;
+
+  // @ViewChild('secodImage', {static: false})
+  // public secondImageUrl: ElementRef;
+
+  @Output() hotelDataSet = new EventEmitter<any>();
+
 
   constructor() { }
 
-  public changeImgs(firstImgUrl: string, secondImgUrl: string) {
-    this.firstImg = this.tempUrl + firstImgUrl;
+  public changeImgs(hotel: Hotel): void {
+    this.firstImg = this.tempUrl + hotel.img;
+    this.secondImage = this.tempUrl + hotel.social_info.img;
+    this.hotelDataSet.emit(hotel);
 
-    this.secondImageUrlOutput = this.tempUrl + secondImgUrl;
-
-    return;
   }
 
 
