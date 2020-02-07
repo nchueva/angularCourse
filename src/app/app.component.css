@@ -2,12 +2,8 @@
     height: 70vh;
 }
 
-.weather-state, app-widget-rate h2  {
+.weather-state  {
   border-bottom: 1px solid white;
-}
-
-app-widget-rate h2 {
-  padding-top: 1rem;
 }
 
 .water-temp {
@@ -17,4 +13,8 @@ app-widget-rate h2 {
 
 .followers {
   border-right: 0.5px solid white;
+}
+
+app-widget-rate h2 {
+  padding-top: 1rem;
 }

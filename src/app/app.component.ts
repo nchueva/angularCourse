@@ -12,6 +12,7 @@ export class AppComponent {
   public hotels: IHotel[] = hotelsData;
 
   public title = 'angularCourse';
+
   public precipitation: string = this.hotels[0].weather.title;
   public icon: string = this.hotels[0].weather.icon;
   public temperature: number = this.hotels[0].weather.temperature;
@@ -28,7 +29,7 @@ constructor() { }
    this.temperature = hotelInfo.weather.temperature;
    this.icon = hotelInfo.weather.icon;
    this.waterTemp = hotelInfo.weather.water;
-   this.sm = hotelInfo.type;
+   this.sm = hotelInfo.social_info.title;
    this.secondImage = hotelInfo.social_info.img;
    this.followers = hotelInfo.social_info.followers;
    this.following = hotelInfo.social_info.following;

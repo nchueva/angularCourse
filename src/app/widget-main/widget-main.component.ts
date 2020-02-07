@@ -29,7 +29,7 @@ export class WidgetMainComponent {
 export const hotelsData: IHotel[] = [
   {
     img: 'burg-eltz.jpg',
-    address: 'Germany, Neustrasse 56, Burg, 40299',
+    address: 'Austria, Neustrasse 56, Innsbruck, 6010',
     phone: 133556658, // дополнительно задание pipe для форматирования
     weather: {
       title: 'Sunny',
@@ -38,17 +38,36 @@ export const hotelsData: IHotel[] = [
       temperature: 20,
     },
     social_info: {
-      title: 'Burg Hotel',
+      title: 'BuInnsbruckrg Hotel',
       img: 'cap-de-formentor.jpg',
       followers: 5000,
       following: 100
     },
-    type: 'Instagram',
+    type: 'Austria',
+
+  },
+  {
+    img: 'austria.jpg',
+    address: 'Austria, Neustrasse 72, Linz, 4020',
+    phone: 133556658, // дополнительно задание pipe для форматирования
+    weather: {
+      title: 'Cloudy',
+      icon: 'fa fa-cloud',
+      water: 12,
+      temperature: 14,
+    },
+    social_info: {
+      title: 'Linz Hotel',
+      img: 'moss.jpg',
+      followers: 300,
+      following: 157
+    },
+    type: 'Austria',
 
   },
   {
     img: 'tajikistan.jpg',
-    address: 'Germany, Somestreet 98, Augsburg, 60589',
+    address: 'Tajikistan, Somestreet 98, Balkh, 1751',
     phone: 2548785157, // дополнительно задание pipe для форматирования
     weather: {
       title: 'Cloudy',
@@ -57,13 +76,13 @@ export const hotelsData: IHotel[] = [
       temperature: 15,
     },
     social_info: {
-      title: 'Augsburg Hotel',
+      title: 'Balkh Hotel',
       img: 'winter.jpg',
       followers: 1259,
       following: 5000
     },
 
-    type: 'Facebook',
+    type: 'Tajikistan',
 
   },
 ];
