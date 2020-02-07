@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hotel } from './widget-main/widget-main.component';
+import { IHotel } from './widget-main/widget-main.component';
 import { ThrowStmt } from '@angular/compiler';
+import { hotelsData } from './widget-main/widget-main.component';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,21 @@ import { ThrowStmt } from '@angular/compiler';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public hotels: IHotel[] = hotelsData;
+
   public title = 'angularCourse';
-  public precipitation = 'Sunny';
-  public icon = 'fa fa-sun-o';
-  public temperature = 20;
-  public waterTemp = 19;
-  public sm = 'Instagram';
-  public secondImage = 'cap-de-formentor.jpg';
-  public followers = 5000;
-  public following = 100;
+  public precipitation: string = this.hotels[0].weather.title;
+  public icon: string = this.hotels[0].weather.icon;
+  public temperature: number = this.hotels[0].weather.temperature;
+  public waterTemp: number = this.hotels[0].weather.water;
+  public sm: string = this.hotels[0].social_info.title;
+  public secondImage: string = this.hotels[0].social_info.img;
+  public followers: number = this.hotels[0].social_info.followers;
+  public following: number = this.hotels[0].social_info.following;
 
 constructor() { }
 
- public incomingData(hotelInfo: Hotel): void {
+ public incomingData(hotelInfo: IHotel): void {
    this.precipitation = hotelInfo.weather.title;
    this.temperature = hotelInfo.weather.temperature;
    this.icon = hotelInfo.weather.icon;

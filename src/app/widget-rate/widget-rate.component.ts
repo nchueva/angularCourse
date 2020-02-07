@@ -10,7 +10,4 @@ export class WidgetRateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-
-
 }

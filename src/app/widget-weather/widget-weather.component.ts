@@ -5,14 +5,8 @@ import { Component, OnInit, ContentChild, AfterContentInit, TemplateRef } from '
   templateUrl: './widget-weather.component.html',
   styleUrls: ['./widget-weather.component.css']
 })
-export class WidgetWeatherComponent implements OnInit, AfterContentInit {
+export class WidgetWeatherComponent {
 
   constructor() { }
-
-  ngOnInit() { }
-
-   ngAfterContentInit(): void { }
-
-
 
 }
