@@ -22,6 +22,11 @@ export class AppComponent {
   public followers: number = this.hotels[0].social_info.followers;
   public following: number = this.hotels[0].social_info.following;
 
+  public account = {
+    name: 'nadya',
+    age: '30'
+  };
+
 constructor() { }
 
  public incomingData(hotelInfo: IHotel): void {

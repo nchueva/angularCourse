@@ -8,22 +8,43 @@ import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter }
 })
 
 
-export class WidgetMainComponent {
+export class WidgetMainComponent implements OnInit {
+
+  constructor() { }
 
   public hotels = hotelsData;
   public tempUrl = './assets/images/';
   public firstImg: string = './assets/images/' + this.hotels[0].img;
   public secondImage: string;
+  public currentCountry: string = this.hotels[0].type;
 
+  // set data to app.component
   @Output() hotelDataSet = new EventEmitter<any>();
 
-  constructor() { }
+  public countriesArr: Array<string> = this.hotels.map((item) => item.type); // create an array with all types of hotels
+
+  // remove duplicated names of countries
+  public countriesSorted: any = this.countriesArr.filter((item: string, pos: number, self: any) => {
+    return self.indexOf(item) === pos;
+  });
+
+
+  public ngOnInit(): void {
+    console.log(this.countriesArr);
+    console.log(this.countriesSorted);
+  }
 
   public changeImgs(hotel: IHotel): void {
     this.firstImg = this.tempUrl + hotel.img;
     this.secondImage = this.tempUrl + hotel.social_info.img;
     this.hotelDataSet.emit(hotel);
   }
+
+  public changeCountry(countryName): void {
+    console.log(countryName);
+    this.currentCountry = countryName;
+  }
+
 }
 
 export const hotelsData: IHotel[] = [
@@ -38,7 +59,7 @@ export const hotelsData: IHotel[] = [
       temperature: 20,
     },
     social_info: {
-      title: 'BuInnsbruckrg Hotel',
+      title: 'Innsbruck Hotel',
       img: 'cap-de-formentor.jpg',
       followers: 5000,
       following: 100

@@ -1,32 +1,28 @@
 <img [src]="firstImg" alt="" />
 <div class="w-100 countries d-flex align-items-center justify-content-center">
-  <div class="px-3 border-right border-white">
-    <h5>Austria</h5>
-  </div>
-  <div class="px-3 border-right border-white">
-    <h5>Tajikistan</h5>
+  <div Class="current-country" *ngFor="let country of countriesSorted" (click)="changeCountry(country)">
+    <h5>{{country}}</h5>
   </div>
 </div>
-<div class="hotels d-flex flex-column overflow-auto">
-  <div *ngFor="let hotel of hotels" class="w-100 d-flex p-3">
 
-    <div class="w-50 d-felx flex-column">
-      <h5 class="text-info">{{hotel.social_info.title}}</h5>
-      <h6><em>Address:</em> {{hotel.address}}</h6>
-      <h6><em>Phone number:</em> {{hotel.phone}}</h6>
-
-    </div>
-
-    <div class="w-50 d-flex justify-content-center align-items-center">
-      <div (click)="changeImgs(hotel)">
-        <img [src]="tempUrl + hotel.img" alt="" />
+<div class="hotels d-flex flex-column justify-content-start overflow-auto">
+  <ng-container *ngFor="let hotel of hotels">
+    <div *ngIf="hotel.type == currentCountry" class="w-100 d-flex p-3">
+      <div class="w-50 d-felx flex-column">
+        <h5 class="text-info">{{hotel.social_info.title}}</h5>
+        <h6><em>Address:</em> {{hotel.address}}</h6>
+        <h6><em>Phone number:</em> {{hotel.phone}}</h6>
       </div>
 
-      <div (click)="changeImgs(hotel)">
-        <img [src]="tempUrl + hotel.social_info.img" alt="" />
+      <div class="w-50 d-flex justify-content-center align-items-center">
+        <div (click)="changeImgs(hotel)">
+          <img [src]="tempUrl + hotel.img" alt="" />
+        </div>
+
+        <div (click)="changeImgs(hotel)">
+          <img [src]="tempUrl + hotel.social_info.img" alt="" />
+        </div>
       </div>
     </div>
-
-    <hr />
-  </div>
+  </ng-container>
 </div>
