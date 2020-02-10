@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { hotelsData } from '../app.component';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -8,105 +9,39 @@ import { Component, OnInit, ViewChild, ElementRef, Input, Output, EventEmitter }
 })
 
 
-export class WidgetMainComponent implements OnInit {
-
-  constructor() { }
+export class WidgetMainComponent {
 
   public hotels = hotelsData;
   public tempUrl = './assets/images/';
-  public firstImg: string = './assets/images/' + this.hotels[0].img;
+  public firstImg: string = this.tempUrl + this.hotels[0].img;
   public secondImage: string;
   public currentCountry: string = this.hotels[0].type;
 
-  // set data to app.component
   @Output() hotelDataSet = new EventEmitter<any>();
+  @Output() hotelsOfCurrCountry = new EventEmitter<any>();
 
-  public countriesArr: Array<string> = this.hotels.map((item) => item.type); // create an array with all types of hotels
+  // create an array with all countries
+  public countriesArr: Array<string> = this.hotels.map((item) => item.type);
 
-  // remove duplicated names of countries
+  // remove duplicated countries from the array
   public countriesSorted: any = this.countriesArr.filter((item: string, pos: number, self: any) => {
     return self.indexOf(item) === pos;
   });
 
-
-  public ngOnInit(): void {
-    console.log(this.countriesArr);
-    console.log(this.countriesSorted);
-  }
-
-  public changeImgs(hotel: IHotel): void {
+  public changeHotel(hotel: IHotel): void {
     this.firstImg = this.tempUrl + hotel.img;
     this.secondImage = this.tempUrl + hotel.social_info.img;
     this.hotelDataSet.emit(hotel);
   }
 
-  public changeCountry(countryName): void {
-    console.log(countryName);
+  public changeCountry(countryName: string): void {
     this.currentCountry = countryName;
+    const hotelsOfCountry = this.hotels.filter((item: IHotel) => item.type === this.currentCountry);
+    this.firstImg = this.tempUrl + hotelsOfCountry[0].img;
+    this.hotelsOfCurrCountry.emit(hotelsOfCountry); // set array of hotels for current country
   }
 
 }
-
-export const hotelsData: IHotel[] = [
-  {
-    img: 'burg-eltz.jpg',
-    address: 'Austria, Neustrasse 56, Innsbruck, 6010',
-    phone: 133556658, // дополнительно задание pipe для форматирования
-    weather: {
-      title: 'Sunny',
-      icon: 'fa fa-sun-o',
-      water: 19,
-      temperature: 20,
-    },
-    social_info: {
-      title: 'Innsbruck Hotel',
-      img: 'cap-de-formentor.jpg',
-      followers: 5000,
-      following: 100
-    },
-    type: 'Austria',
-
-  },
-  {
-    img: 'austria.jpg',
-    address: 'Austria, Neustrasse 72, Linz, 4020',
-    phone: 133556658, // дополнительно задание pipe для форматирования
-    weather: {
-      title: 'Cloudy',
-      icon: 'fa fa-cloud',
-      water: 12,
-      temperature: 14,
-    },
-    social_info: {
-      title: 'Linz Hotel',
-      img: 'moss.jpg',
-      followers: 300,
-      following: 157
-    },
-    type: 'Austria',
-
-  },
-  {
-    img: 'tajikistan.jpg',
-    address: 'Tajikistan, Somestreet 98, Balkh, 1751',
-    phone: 2548785157, // дополнительно задание pipe для форматирования
-    weather: {
-      title: 'Cloudy',
-      icon: 'fa fa-cloud',
-      water: 10,
-      temperature: 15,
-    },
-    social_info: {
-      title: 'Balkh Hotel',
-      img: 'winter.jpg',
-      followers: 1259,
-      following: 5000
-    },
-
-    type: 'Tajikistan',
-
-  },
-];
 
 export interface IHotel {
   img: string;
