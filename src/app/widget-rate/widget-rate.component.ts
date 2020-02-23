@@ -5,9 +5,6 @@ import { Component, OnInit, AfterContentInit, ContentChild, TemplateRef, ViewChi
   templateUrl: './widget-rate.component.html',
   styleUrls: ['./widget-rate.component.css']
 })
-export class WidgetRateComponent implements OnInit {
+export class WidgetRateComponent {
 
-  constructor() { }
-
-  ngOnInit() { }
 }

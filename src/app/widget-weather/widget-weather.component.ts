@@ -7,6 +7,4 @@ import { Component, OnInit, ContentChild, AfterContentInit, TemplateRef } from '
 })
 export class WidgetWeatherComponent {
 
-  constructor() { }
-
 }

@@ -8,15 +8,16 @@ import { IHotel } from './widget-main/widget-main.component';
 })
 export class AppComponent {
   public hotels: IHotel[] = hotelsData;
+  public defaultHotel = this.hotels[0];
 
-  public precipitation: string = this.hotels[0].weather.title;
-  public icon: string = this.hotels[0].weather.icon;
-  public temperature: number = this.hotels[0].weather.temperature;
-  public waterTemp: number = this.hotels[0].weather.water;
-  public sm: string = this.hotels[0].social_info.title;
-  public secondImage: string = this.hotels[0].social_info.img;
-  public followers: number = this.hotels[0].social_info.followers;
-  public following: number = this.hotels[0].social_info.following;
+  public precipitation: string = this.defaultHotel.weather.title;
+  public icon: string = this.defaultHotel.weather.icon;
+  public temperature: number = this.defaultHotel.weather.temperature;
+  public waterTemp: number = this.defaultHotel.weather.water;
+  public sm: string = this.defaultHotel.social_info.title;
+  public secondImage: string = this.defaultHotel.social_info.img;
+  public followers: number = this.defaultHotel.social_info.followers;
+  public following: number = this.defaultHotel.social_info.following;
 
   public incomingHotelData(hotelInfo: IHotel): void {
     this.precipitation = hotelInfo.weather.title;
@@ -31,14 +32,15 @@ export class AppComponent {
 
   // set data of first hotel in the list of hotels for current country after switch
   public getHolelsForCurrCountry(hotelsOFCurrCountry: IHotel[]) {
-     this.precipitation = hotelsOFCurrCountry[0].weather.title;
-     this.icon = hotelsOFCurrCountry[0].weather.icon;
-     this.temperature = hotelsOFCurrCountry[0].weather.temperature;
-     this.waterTemp = hotelsOFCurrCountry[0].weather.water;
-     this.sm = hotelsOFCurrCountry[0].social_info.title;
-     this.secondImage = hotelsOFCurrCountry[0].social_info.img;
-     this.followers = hotelsOFCurrCountry[0].social_info.followers;
-     this.following = hotelsOFCurrCountry[0].social_info.following;
+    const defaultHotel = hotelsOFCurrCountry[0];
+    this.precipitation = defaultHotel.weather.title;
+    this.icon = defaultHotel.weather.icon;
+    this.temperature = defaultHotel.weather.temperature;
+    this.waterTemp = defaultHotel.weather.water;
+    this.sm = defaultHotel.social_info.title;
+    this.secondImage = defaultHotel.social_info.img;
+    this.followers = defaultHotel.social_info.followers;
+    this.following = defaultHotel.social_info.following;
   }
 
 }
