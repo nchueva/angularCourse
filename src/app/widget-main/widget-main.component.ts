@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { hotelsData } from '../app.component';
+import { hotelsData } from '../mock.component';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -38,7 +38,7 @@ export class WidgetMainComponent {
     this.currentCountry = countryName;
     const hotelsOfCountry = this.hotels.filter((item: IHotel) => item.type === this.currentCountry);
     this.firstImg = this.tempUrl + hotelsOfCountry[0].img;
-    this.hotelsOfCurrCountry.emit(hotelsOfCountry); // set array of hotels for current country
+    this.hotelsOfCurrCountry.emit(hotelsOfCountry); // set array of hotels of current country
   }
 
 }

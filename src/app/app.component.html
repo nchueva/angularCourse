@@ -7,21 +7,21 @@
 
     <app-widget-weather class="w-100 h-50 mb-4">
       <div class="w-25 weather-state text-center">
-        <h2>{{precipitation}}</h2>
+        <h2>{{hotelInfo.weather.title}}</h2>
       </div>
-      <i [class]="icon" class="my-1"></i>
+      <i [class]="hotelInfo.weather.icon" class="my-1"></i>
       <div class="w-50 text-center">
-        <h2>{{temperature}}°C</h2>
+        <h2>{{hotelInfo.weather.temperature}}°C</h2>
       </div>
-      <p class="w-25 text-center water-temp"> Water {{waterTemp}}°C</p>
+      <p class="w-25 text-center water-temp"> Water {{hotelInfo.weather.water}}°C</p>
     </app-widget-weather>
 
     <app-widget-rate class="w-100 h-50">
-      <h2 class="w-50 text-center">{{sm}}</h2>
-      <img src="{{'./assets/images/' + secondImage}}">
+      <h2 class="w-50 text-center">{{hotelInfo.social_info.title}}</h2>
+      <img src="{{'./assets/images/' + hotelInfo.social_info.img}}">
       <div class="w-100 d-flex justify-content-center">
-        <div class="followers px-3">{{followers}} Followers</div>
-        <div class="px-3">{{following}} Following</div>
+        <div class="followers px-3">{{hotelInfo.social_info.followers}} Followers</div>
+        <div class="px-3">{{hotelInfo.social_info.following}} Following</div>
       </div>
     </app-widget-rate>
 
